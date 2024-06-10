@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="16dp">
+
+    <!-- Title input -->
+    <EditText
+        android:id="@+id/etTitle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Title"
+        android:layout_marginBottom="8dp"/>
+
+    <!-- Category input -->
+    <EditText
+        android:id="@+id/etCategory"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Category"
+        android:layout_below="@id/etTitle"
+        android:layout_marginBottom="8dp"/>
+
+    <!-- Days input -->
+    <EditText
+        android:id="@+id/etDays"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Days"
+        android:layout_below="@id/etCategory"
+        android:layout_marginBottom="8dp"/>
+
+    <!-- Hours input -->
+    <EditText
+        android:id="@+id/etHours"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Hours"
+        android:layout_below="@id/etDays"
+        android:layout_marginBottom="8dp"/>
+
+    <!-- Minutes input -->
+    <EditText
+        android:id="@+id/etMinutes"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Minutes"
+        android:layout_below="@id/etHours"
+        android:layout_marginBottom="8dp"/>
+
+    <!-- Seconds input -->
+    <EditText
+        android:id="@+id/etSeconds"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Seconds"
+        android:layout_below="@id/etMinutes"
+        android:layout_marginBottom="8dp"/>
+
+    <!-- DateTime selector -->
+    <Button
+        android:id="@+id/btnDateTimeSelector"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Select Date and Time"
+        android:layout_below="@id/etSeconds"
+        android:layout_marginBottom="8dp"/>
+
+    <!-- Repeat checkbox -->
+    <CheckBox
+        android:id="@+id/cbRepeat"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/btnDateTimeSelector"
+        android:text="Repeat"/>
+
+    <!-- Create and Cancel buttons -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/cbRepeat"
+        android:orientation="horizontal"
+        android:gravity="center"
+        android:layout_marginTop="16dp">
+
+        <Button
+            android:id="@+id/btnCreate"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Create"/>
+
+        <Button
+            android:id="@+id/btnCancel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Cancel"/>
+    </LinearLayout>
+</RelativeLayout>

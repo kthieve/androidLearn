@@ -1,0 +1,81 @@
+<!-- res/layout/activity_timer_list.xml -->
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="16dp">
+
+    <!-- Logo and burger sidebar at the top -->
+    <LinearLayout
+        android:id="@+id/logo_container"
+        android:layout_width="395dp"
+        android:layout_height="50dp"
+        android:orientation="horizontal"
+        android:padding="1dp">
+
+        <!---
+        <ImageView
+            android:id="@+id/burger_icon"
+            android:layout_width="59dp"
+            android:layout_height="41dp"
+            android:layout_gravity="start"
+            android:layout_marginBottom="16dp"
+            android:src="@drawable/burger" />
+-->
+        <ImageView
+            android:id="@+id/logo"
+            android:layout_width="100dp"
+            android:layout_height="50dp"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentEnd="true"
+            android:layout_gravity="center_horizontal"
+
+            android:layout_marginLeft="120dp"
+            android:src="@drawable/cool_down_logo" />
+
+    </LinearLayout>
+    <!-- Logo and burger sidebar at the top -->
+    <LinearLayout
+        android:id="@+id/timeContainer"
+        android:layout_width="394dp"
+        android:layout_height="456dp"
+        android:layout_marginTop="40dp"
+        android:layout_marginBottom="40dp"
+        android:orientation="horizontal"
+        android:padding="5dp">
+
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rvTimers"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@id/logo"
+            android:layout_marginTop="20dp" />
+    </LinearLayout>
+
+    <!-- Bottom buttons -->
+    <LinearLayout
+        android:id="@+id/bottom_buttons_container"
+        android:layout_width="match_parent"
+        android:layout_height="80dp"
+        android:layout_alignParentBottom="true"
+        android:gravity="center"
+        android:orientation="horizontal"
+        android:padding="5dp">
+
+
+        <!-- Center Add Timer Button at the bottom -->
+        <Button
+            android:id="@+id/btn_add_cooldown"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:layout_margin="10dp"
+            android:background="@drawable/plus"
+
+            android:gravity="center"
+            android:text="+"
+            android:textSize="20sp" />
+
+    </LinearLayout>
+
+</RelativeLayout>
+    <!---android:drawableTop="@drawable/ic_add_cooldown"-->
