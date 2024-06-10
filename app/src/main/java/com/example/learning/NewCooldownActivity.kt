@@ -24,6 +24,7 @@ class NewCooldownActivity : AppCompatActivity() {
     private lateinit var btnCreate: Button
     private lateinit var btnCancel: Button
     private var cooldown: Long = 0
+    private var calenderSet = false
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -77,6 +78,7 @@ class NewCooldownActivity : AppCompatActivity() {
 
                 // Update the cooldown value
                 cooldown = differenceMillis
+                calenderSet = true
             }, calendar.get(Calendar.HOUR_OF_DAY), calendar.get(Calendar.MINUTE), true)
             timePickerDialog.show()
         }, calendar.get(Calendar.YEAR), calendar.get(Calendar.MONTH), calendar.get(Calendar.DAY_OF_MONTH))
@@ -87,6 +89,21 @@ class NewCooldownActivity : AppCompatActivity() {
         val title = etTitle.text.toString()
         val category = etCategory.text.toString()
         val repeat = cbRepeat.isChecked
+
+        if (!calenderSet) {
+            // If calendar is not initialized, use time from text boxes
+            val days = etDays.text.toString().toLongOrNull() ?: 0
+            val hours = etHours.text.toString().toLongOrNull() ?: 0
+            val minutes = etMinutes.text.toString().toLongOrNull() ?: 0
+            val seconds = etSeconds.text.toString().toLongOrNull() ?: 0
+
+            cooldown = (days * 24 * 60 * 60 + hours * 60 * 60 + minutes * 60 + seconds) * 1000
+        }
+
+        if (cooldown <= 5000) {
+            // If cooldown is less than or equal to 5 seconds, set it to 10 seconds
+            cooldown = 10000
+        }
 
         // Create a new timer and add it to the timer list
         val newTimer = Timer(title, category, cooldown, repeat)

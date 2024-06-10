@@ -52,7 +52,6 @@ class TimerAdapter(private val timers: List<Timer>) : RecyclerView.Adapter<Timer
                     progressBar.progress = 0
                     Toast.makeText(itemView.context, "${timer.title} timer finished", Toast.LENGTH_SHORT).show()
                     tvTimeLeft.text = "Finished"
-                    showNotification(timer)
                     itemView.isEnabled = !timer.repeat
                     if (timer.repeat) {
                         start()
@@ -72,23 +71,6 @@ class TimerAdapter(private val timers: List<Timer>) : RecyclerView.Adapter<Timer
                 }
             }
         }
-        private fun showNotification(timer: Timer) {
-            val intent = Intent(itemView.context, TimerListActivity::class.java).apply {
-                flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
-            }
-            val pendingIntent: PendingIntent = PendingIntent.getActivity(itemView.context, 0, intent, 0)
 
-            val builder = NotificationCompat.Builder(itemView.context, "timer_channel")
-                .setSmallIcon(R.drawable.ic_notification)  // Reference the new icon
-                .setContentTitle("${timer.title} Timer Finished")
-                .setContentText("Your timer for ${timer.title} has finished.")
-                .setPriority(NotificationCompat.PRIORITY_DEFAULT)
-                .setContentIntent(pendingIntent)
-                .setAutoCancel(true)
-
-            with(NotificationManagerCompat.from(itemView.context)) {
-                notify(timer.hashCode(), builder.build())
-            }
-        }
     }
 }

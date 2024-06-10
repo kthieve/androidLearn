@@ -23,7 +23,6 @@ public object TimerList {
 }
 
 
-
 class TimerListActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
